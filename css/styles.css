@@ -82,6 +82,7 @@ button {
 .bottom-row {
     display: flex;
     justify-content: space-between;
+    
     /* margin-top: 2rem; */
 }
 
@@ -89,6 +90,7 @@ hr {
     height: 120px;
     margin-top: 30px;
     margin-right: 10px;
+    color: white;
 }
 
 .side-display {
