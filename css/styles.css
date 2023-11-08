@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: aqua;
+    
+}
+
+form {
+    margin-top: 20px;
+    margin-left: 30px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+input {
+    width: 70%;
+    height: 40px;
+    border: none;
+    outline: 0;
+    background-color: #f7f7f7; 
+    color: #555;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 1.3rem;
+}
+
+button {
+    border: none;
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}
+.search-icon {
+    width: 26px;
+}
+
+.main-display {
+    margin: 200px auto;
+    background-color: black;
+    color: white;
+    height: 200px;
+    width: 200px;
+}
+
+@media (max-width: 450px) {
+    form {
+        margin: 20px 0 0 60px;
+    }
+}
