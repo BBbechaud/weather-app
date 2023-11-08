@@ -1,6 +1,7 @@
 const input = document.querySelector('input')
 const btn = document.querySelector('button')
 const form = document.querySelector('form')
+const errorMsg = document.querySelector('.error-msg')
 const city = document.querySelector('.city')
 const temp = document.querySelector('.temp')
 const humidity = document.querySelector('.humidity')
@@ -8,6 +9,7 @@ const feelsLike = document.querySelector('.feels-like')
 const wind = document.querySelector('.wind')
 const condition = document.querySelector('.condition')
 
+// API Fetch
 async function getWeather(location) {
    try{
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=47f78b96ec8146cf91a151625230611&q=${location}&days=1&aqi=no&alerts=no`)
@@ -15,9 +17,11 @@ async function getWeather(location) {
     console.log(weatherData)
     const newData = processData(weatherData)
     displayData(newData)
+    errorMsg.style.display = 'none'
     reset()
    }
    catch(error) {
+        errorMsg.style.display = 'block'
         console.log("Please enter a correct city name") 
     }
 }
@@ -42,8 +46,8 @@ function processData(weatherData) {
     return desiredData
 }
 
-function displayData(newData) {
-    
+// Use gathered data to display on DOM
+function displayData(newData) { 
     temp.innerHTML = newData.temp
     city.innerHTML = `${newData.city}, ${newData.region}`
     feelsLike.innerHTML = `FEELS LIKE: ${newData.feelsLike}`
@@ -52,17 +56,14 @@ function displayData(newData) {
     condition.innerHTML = newData.condition
 }
 
-
-
-
-// Event listeners
+// Event listeners and reset
 btn.addEventListener('click', submited)
 input.addEventListener('submit', submited)
+
 function submited (event){
     event.preventDefault()
     getWeather(input.value)   
 }
-
 function reset() {
     form.reset()
 }

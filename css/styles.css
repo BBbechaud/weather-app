@@ -44,6 +44,12 @@ button {
     width: 26px;
 }
 
+.error-msg {
+    color: red;
+    margin-left: 60px ;
+    display: none;
+}
+
 .container {
     margin: 200px auto;
     background-color: black;
@@ -75,26 +81,24 @@ button {
         content: '\00B0 F';
         font-size: 2rem;
         position: absolute;
-        top: 1rem;
-        left: 7.5rem;
+        top: .8rem;
+        left: 9.5rem;
 }
 
 .bottom-row {
     display: flex;
     justify-content: space-between;
-    
-    /* margin-top: 2rem; */
+    width: 500px;
 }
 
 hr {
     height: 120px;
     margin-top: 30px;
-    margin-right: 10px;
     color: white;
 }
 
 .side-display {
-    margin-right: 110px;
+    margin-right: 120px;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
@@ -112,8 +116,8 @@ hr {
   .feels-like::after {
     content: '\00B0 F';
     position: absolute;
-    bottom: 1.1rem;
-    left: 11.4rem;
+    bottom: .5rem;
+    left: 7.4rem;
     font-size: 1rem;
   }
 
