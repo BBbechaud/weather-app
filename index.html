@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Nunito:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,17 +12,21 @@
         <input type="text">
         <button><img src="images/search-icon.png" class="search-icon"></button>
     </form>
-  
-        <div class="main-display">
-            <h2 class="city">New York</h2>
-            <h1 class="temp">22&deg;F</h1>
-            <div class="side-display">
-                <p class="feels-like">Feels like:</p>
-                <p class="humidity">Humidity:</p>
-                <p class="wind">Wind:</p>
+        <div class="container">
+            <div class="top-row">
+                <h2 class="city">New York, New York</h2>
+                <h3>Sunny</h3>
             </div>
+            <div class="bottom-row">
+                <h1 class="temp">22</h1> 
+                <hr>  
+                <div class="side-display">
+                    <p class="feels-like">FEELS LIKE: 80</p>
+                    <p class="humidity">HUMIDITY: 20</p>
+                    <p class="wind">WIND: 2 MPH</p>
+                </div> 
+            </div>        
         </div>
-    
     <script src="js/script.js"></script>
 </body>
 </html>

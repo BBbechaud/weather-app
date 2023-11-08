@@ -13,7 +13,7 @@ async function getWeather(location) {
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=47f78b96ec8146cf91a151625230611&q=${location}&days=1&aqi=no&alerts=no`)
     const weatherData = await response.json()
     console.log(weatherData)
-    temp.innerHTML = (weatherData.forecast.forecastday[0].day.avgtemp_f)
+    temp.innerHTML = Math.round(weatherData.current.temp_f)
    }
    catch(error) {
         console.log("Please enter a correct city name") 
