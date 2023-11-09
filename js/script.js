@@ -42,18 +42,29 @@ function processData(weatherData) {
         } else {
           desiredData['region'] = weatherData.location.country.toUpperCase();
         }
-    
+
     return desiredData
 }
 
 // Use gathered data to display on DOM
 function displayData(newData) { 
+    const weatherInfo = document.getElementsByClassName('info')
+    Array.from(weatherInfo).forEach((div) => {
+        if (div.classList.contains('fade-in')) {
+            div.classList.remove('fade-in');
+            div.offsetWidth;
+            div.classList.add('fade-in');
+          } else {
+            div.classList.add('fade-in');
+          }
+    })
+    
     temp.innerHTML = newData.temp
     city.innerHTML = `${newData.city}, ${newData.region}`
     feelsLike.innerHTML = `FEELS LIKE: ${newData.feelsLike}`
     humidity.innerHTML = `HUMIDITY: ${newData.humidity}`
     wind.innerHTML =   `WIND: ${newData.wind} MPH`
-    condition.innerHTML = newData.condition
+    condition.innerHTML = `Current Condition: ${newData.condition}`
 }
 
 // Event listeners and reset

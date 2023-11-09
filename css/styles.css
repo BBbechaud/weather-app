@@ -51,8 +51,8 @@ button {
 }
 
 .container {
-    margin: 200px auto;
-    background-color: black;
+    margin: 200px auto 0 auto;
+    /* background-color: black; */
     color: white;
     width: fit-content;
     display: grid;
@@ -63,11 +63,25 @@ button {
 @media (max-width: 450px) {
     form {
         margin: 20px 0 0 60px;
+        width: 80%;
+    }
+    input {
+        min-width: 80%;
+    }
+    :root {
+        font-size: 14px;
+    }
+    .container {
+        margin-left: 16%;
     }
 }
 
 .city {
     font-size: 3rem;
+}
+
+.condition {
+    margin-left: 3px;
 }
 
 .temp {
@@ -124,3 +138,21 @@ hr {
   .humidity::after {
     content: '%';
   }
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.1;
+        transform: scale(0.9, 0.9);
+      }
+      100% {
+        opacity: 1;
+        
+      }
+    
+}
