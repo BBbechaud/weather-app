@@ -8,8 +8,9 @@
 body {
    background-color: #777;
    background-image: url('../images/day.jpg');
-    background-position: center;
-    text-shadow: 1px 1px 1px black;
+   background-position: center;
+   background-repeat: repeat-y;
+   text-shadow: 1px 1px 1px black;           
 }
 
 form {
@@ -48,8 +49,9 @@ button {
 
 .error-msg {
     color: red;
-    margin-left: 60px ;
+    margin-left: 30px ;
     display: none;
+    font-size: 1.2rem;
 }
 
 .container {
@@ -58,7 +60,6 @@ button {
     width: fit-content;
     display: grid;
     grid-template-rows: 1fr 2fr;
-  
 }
 
 @media (max-width: 450px) {
@@ -74,6 +75,9 @@ button {
     }
     .container {
         margin-left: 16%;
+    }
+    .error-msg {
+        margin-left: 70px;
     }
 }
 
@@ -91,7 +95,6 @@ button {
     font-size: 8.5rem;
     position: relative;
     font-family: 'Nunito', sans-serif;
-    
 }
 
 .temp::after {
@@ -106,11 +109,6 @@ button {
     display: flex;
     justify-content: space-between;
     width: 500px;
-}
-
-.hr-small {
-    display: inline;
-    
 }
 
 .hr-big {
@@ -129,7 +127,6 @@ button {
     margin-left: 12px;
     letter-spacing: 0.05rem;
     height: 8rem;
-
 }
 
 .feels-like {

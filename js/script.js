@@ -30,6 +30,7 @@ async function getWeather(location) {
    catch(error) {
         errorMsg.style.display = 'block'
         console.log("Please enter a correct city name") 
+        reset()
     }
 }
 
@@ -45,8 +46,7 @@ function processData(weatherData) {
         time: new Date(weatherData.location.localtime).getHours(),   
         localTime: new Date(weatherData.location.localtime)
     }
-
-          
+ 
         // Use state if in US, use country if not in US
         if (weatherData.location.country === 'United States of America') {
             desiredData['region'] = weatherData.location.region.toUpperCase();
@@ -59,6 +59,7 @@ function processData(weatherData) {
 
 // Use gathered data to display on DOM
 function displayData(newData) { 
+    // Add fade in animation to text
     const weatherInfo = document.getElementsByClassName('info')
     Array.from(weatherInfo).forEach((div) => {
         if (div.classList.contains('fade-in')) {
@@ -75,18 +76,18 @@ function displayData(newData) {
     feelsLike.innerHTML = `FEELS LIKE: ${newData.feelsLike}`
     humidity.innerHTML = `HUMIDITY: ${newData.humidity}`
     wind.innerHTML =   `WIND SPEED: ${newData.wind} MPH`
-    condition.innerHTML = newData.condition
+    condition.innerHTML = `Current conditions: ${newData.condition}`
     localTime.innerHTML = f.format(newData.localTime)
     changeBackground(newData)
 }
 
  // Change background image based on local time
 function changeBackground(newData) {
-    if (newData.time >= '6' && newData.time <= '8'){
+    if (newData.time >= '6' && newData.time < '8'){
         document.body.style.backgroundImage = "url('../weather-app/images/dawn.jpg')"
-    } else if (newData.time > '8' && newData.time <= '18'){
+    } else if (newData.time >= '8' && newData.time < '18'){
             document.body.style.backgroundImage = "url('../weather-app/images/day.jpg')"
-    } else if (newData.time > '18' && newData.time <= '20'){
+    } else if (newData.time >= '18' && newData.time < '20'){
         document.body.style.backgroundImage = "url('../weather-app/images/dusk.jpg')"
     } else {
         document.body.style.backgroundImage = "url('../weather-app/images/night.jpg')"
@@ -94,11 +95,9 @@ function changeBackground(newData) {
 }
 
 // On page load, display NY as default city
-    window.onload = function() {
-        
-        getWeather('New York')
-    }
-
+window.onload = function() {
+    getWeather('New York')
+}
 
 // Event listeners and reset
 btn.addEventListener('click', submited)
