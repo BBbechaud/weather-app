@@ -6,9 +6,10 @@
 }
 
 body {
-    background-color: aqua;
+   background-color: #777;
+   background-image: url('../images/day.jpg');
     background-position: center;
-    
+    text-shadow: 1px 1px 1px black;
 }
 
 form {
@@ -53,7 +54,6 @@ button {
 
 .container {
     margin: 200px auto 0 auto;
-    /* background-color: black; */
     color: white;
     width: fit-content;
     display: grid;
@@ -79,6 +79,7 @@ button {
 
 .city {
     font-size: 3rem;
+    letter-spacing: 3px;
 }
 
 .condition {
@@ -109,7 +110,7 @@ button {
 hr {
     height: 120px;
     margin-top: 30px;
-    color: white;
+    border-color: white;
 }
 
 .side-display {
@@ -152,8 +153,6 @@ hr {
         transform: scale(0.9, 0.9);
       }
       100% {
-        opacity: 1;
-        
+        opacity: 1;     
       }
-    
 }

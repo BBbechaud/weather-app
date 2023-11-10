@@ -8,6 +8,7 @@ const humidity = document.querySelector('.humidity')
 const feelsLike = document.querySelector('.feels-like')
 const wind = document.querySelector('.wind')
 const condition = document.querySelector('.condition')
+const c = document.querySelector('.container')
 
 // API Fetch
 async function getWeather(location) {
@@ -18,6 +19,7 @@ async function getWeather(location) {
     const newData = processData(weatherData)
     displayData(newData)
     errorMsg.style.display = 'none'
+    c.classList.add('info')
     reset()
    }
    catch(error) {
@@ -67,7 +69,6 @@ function displayData(newData) {
     wind.innerHTML =   `WIND: ${newData.wind} MPH`
     condition.innerHTML = `Current Condition: ${newData.condition}`
     changeBackground(newData)
-  
 }
 
  // Change background image based on local time
@@ -82,6 +83,13 @@ function changeBackground(newData) {
         document.body.style.backgroundImage = "url('../weather-app/images/night.jpg')"
     }
 }
+
+// On page load, display NY as default city
+    window.onload = function() {
+        
+        getWeather('New York')
+    }
+
 
 // Event listeners and reset
 btn.addEventListener('click', submited)
