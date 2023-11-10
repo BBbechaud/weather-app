@@ -8,7 +8,12 @@ const humidity = document.querySelector('.humidity')
 const feelsLike = document.querySelector('.feels-like')
 const wind = document.querySelector('.wind')
 const condition = document.querySelector('.condition')
+const localTime = document.querySelector('.local-time')
 const c = document.querySelector('.container')
+const f = new Intl.DateTimeFormat('en-us', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+})
 
 // API Fetch
 async function getWeather(location) {
@@ -37,8 +42,11 @@ function processData(weatherData) {
         humidity: weatherData.current.humidity,
         wind: Math.round(weatherData.current.wind_mph),
         condition: weatherData.current.condition.text,
-        time: new Date(weatherData.location.localtime).getHours(),    
+        time: new Date(weatherData.location.localtime).getHours(),   
+        localTime: new Date(weatherData.location.localtime)
     }
+
+          
         // Use state if in US, use country if not in US
         if (weatherData.location.country === 'United States of America') {
             desiredData['region'] = weatherData.location.region.toUpperCase();
@@ -66,8 +74,9 @@ function displayData(newData) {
     city.innerHTML = `${newData.city}, ${newData.region}`
     feelsLike.innerHTML = `FEELS LIKE: ${newData.feelsLike}`
     humidity.innerHTML = `HUMIDITY: ${newData.humidity}`
-    wind.innerHTML =   `WIND: ${newData.wind} MPH`
-    condition.innerHTML = `Current Condition: ${newData.condition}`
+    wind.innerHTML =   `WIND SPEED: ${newData.wind} MPH`
+    condition.innerHTML = newData.condition
+    localTime.innerHTML = f.format(newData.localTime)
     changeBackground(newData)
 }
 
