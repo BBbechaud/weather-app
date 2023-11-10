@@ -35,6 +35,7 @@ function processData(weatherData) {
         humidity: weatherData.current.humidity,
         wind: Math.round(weatherData.current.wind_mph),
         condition: weatherData.current.condition.text,
+        time: new Date(weatherData.location.localtime).getHours(),    
     }
         // Use state if in US, use country if not in US
         if (weatherData.location.country === 'United States of America') {
@@ -65,6 +66,21 @@ function displayData(newData) {
     humidity.innerHTML = `HUMIDITY: ${newData.humidity}`
     wind.innerHTML =   `WIND: ${newData.wind} MPH`
     condition.innerHTML = `Current Condition: ${newData.condition}`
+    changeBackground(newData)
+  
+}
+
+ // Change background image based on local time
+function changeBackground(newData) {
+    if (newData.time >= '6' && newData.time <= '8'){
+        document.body.style.backgroundImage = "url('../weather-app/images/dawn.jpg')"
+    } else if (newData.time > '8' && newData.time <= '18'){
+            document.body.style.backgroundImage = "url('../weather-app/images/day.jpg')"
+    } else if (newData.time > '18' && newData.time <= '20'){
+        document.body.style.backgroundImage = "url('../weather-app/images/dusk.jpg')"
+    } else {
+        document.body.style.backgroundImage = "url('../weather-app/images/night.jpg')"
+    }
 }
 
 // Event listeners and reset
@@ -78,10 +94,3 @@ function submited (event){
 function reset() {
     form.reset()
 }
-
-// temp.innerHTML = Math.round(weatherData.current.temp_f)
-// city.innerHTML = `${weatherData.location.name}, ${weatherData.location.country}`
-// feelsLike.innerHTML = `Feels Like: ${weatherData.current.feelslike_f}`.toUpperCase()
-// humidity.innerHTML = `Humidity: ${weatherData.current.humidity}`.toUpperCase()
-// wind.innerHTML =   `Wind: ${weatherData.current.wind_mph} mph`.toUpperCase()
-// condition.innerHTML = weatherData.current.condition.text
