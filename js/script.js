@@ -85,13 +85,13 @@ function displayData(newData) {
  // Change background image based on local time
 function changeBackground(newData) {
     if (newData.time >= '6' && newData.time < '8'){
-        document.body.style.backgroundImage = "url('../weather-app/images/dawn.jpg')"
+        document.body.style.backgroundImage = "url('../weather-app/images/dawn.JPG')"
     } else if (newData.time >= '8' && newData.time < '18'){
-            document.body.style.backgroundImage = "url('../weather-app/images/day.jpg')"
+            document.body.style.backgroundImage = "url('../weather-app/images/day.JPG')"
     } else if (newData.time >= '18' && newData.time < '20'){
-        document.body.style.backgroundImage = "url('../weather-app/images/dusk.jpg')"
+        document.body.style.backgroundImage = "url('../weather-app/images/dusk.JPG')"
     } else {
-        document.body.style.backgroundImage = "url('../weather-app/images/night.jpg')"
+        document.body.style.backgroundImage = "url('../weather-app/images/night.JPG')"
     }
 }
 
