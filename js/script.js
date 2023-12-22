@@ -18,7 +18,7 @@ const f = new Intl.DateTimeFormat('en-us', {
 // API Fetch
 async function getWeather(location) {
    try{
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=47f78b96ec8146cf91a151625230611&q=${location}&days=1&aqi=no&alerts=no`)
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=47f78b96ec8146cf91a151625230611&q=${location}&days=1&aqi=no&alerts=no`)
     const weatherData = await response.json()
     console.log(weatherData)
     const newData = processData(weatherData)
