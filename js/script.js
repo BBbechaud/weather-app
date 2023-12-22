@@ -15,6 +15,7 @@ const f = new Intl.DateTimeFormat('en-us', {
     timeStyle: 'short',
 })
 
+
 // API Fetch
 async function getWeather(location) {
    try{
